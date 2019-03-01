@@ -36,33 +36,3 @@ public class DemoApplication extends WebSecurityConfigurerAdapter {
 	}
 }
 
-@Controller
-@RequestMapping("/")
-class HomeController {
-	@GetMapping
-	public String home() {
-		return "index";
-	}
-}
-
-@Controller
-@RequestMapping("/login")
-class LoginController {
-
-	private SavedRequestAwareAuthenticationSuccessHandler handler = new SavedRequestAwareAuthenticationSuccessHandler();
-
-	@GetMapping
-	public String form() {
-		return "login";
-	}
-
-	@PostMapping
-	public void authenticate(@RequestParam Map<String, String> map,
-			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		Authentication result = new UsernamePasswordAuthenticationToken(
-				map.get("username"), "N/A",
-				AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
-		SecurityContextHolder.getContext().setAuthentication(result);
-		handler.onAuthenticationSuccess(request, response, result);
-	}
-}
