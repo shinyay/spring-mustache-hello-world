@@ -1,4 +1,4 @@
-# Spring and {{ mustache }} 
+# Spring and {{ Mustache }} 
 
 ---
 ## Prerequisites
@@ -7,7 +7,7 @@
 - Spring Boot: 1.4.7.RELEASE
 
 ### Spring Dependencies
--Mustache
+- Mustache
 - Actuator
 - Cloud Security
 - Test
