@@ -15,3 +15,26 @@
 
 ## Tutorial
 ### Simple Spring Boot
+#### Controller
+
+```java
+@Controller
+class HomeController {
+  @GetMapping("/")
+  String home() {
+    return "index";
+  }
+}
+```
+
+#### Index Page
+
+```html
+<!doctype html>
+<html lang="en">
+  <body>
+    <h1>Demo</h1>
+    <div>Hello World</div>
+  </body>
+</html>
+```
