@@ -15,6 +15,9 @@
 
 ## Tutorial
 ### シンプルな Mustache アプリケーション
+
+Mustache テンプレートを用いた静的画面を表示するのみのシンプルなアプリケーションを作ります。
+
 #### Controller
 
 まず "/" アクセスした時に `Index` ページを表示する Controller クラスを準備します。
@@ -52,7 +55,7 @@ Index ページの中で、次のような記述をしています。
 
 <details><summary>header.html</summary>
 
-```
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -73,9 +76,42 @@ Index ページの中で、次のような記述をしています。
 
 <details><summary>footer.html</summary>
 
-```
+```html
 </body>
 </html>
 ```
 </details>
 
+### Model オブジェクトの利用
+
+Model オブジェクトを生成し設定した値を Mustache テンプレートで表示するアプリケーションを作ります。
+
+#### Mustache 記法 - Variables
+
+`header.html` と `index.html` で静的に表示設定していた内容を以下のように変更します。
+
+- header.html
+
+```html
+<title>{{title}}</title>
+```
+
+- index.html
+
+```html
+<h1>{{title}}</h1>
+```
+
+Model オブジェクトでキー名が `title` として設定された属性の値をそれぞれ表示します。
+
+#### Model オブジェクトの設定
+
+Controller クラスの中で Model オブジェクトの設定を行う処理を追加します。
+
+```
+@GetMapping
+public String home(Model model) {
+	model.addAttribute("title", "Mustache Application");
+	return "index";
+}
+```
