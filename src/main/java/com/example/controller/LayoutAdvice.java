@@ -1,14 +1,15 @@
 package com.example.controller;
 
-import org.springframework.ui.Model;
+import com.samskivert.mustache.Mustache;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @ControllerAdvice
 public class LayoutAdvice {
 
-    @ModelAttribute
-    public void defaultLayout(Model model) {
-        model.addAttribute("title", "Mustache Demo Application");
+    @ModelAttribute("layout")
+    public Mustache.Lambda defaultLayout() {
+        return new Layout();
     }
 }
+
