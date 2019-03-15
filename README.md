@@ -115,3 +115,44 @@ public String home(Model model) {
 	return "index";
 }
 ```
+
+#### 2.3. spring-boot:run
+
+この時点のアプリケーションを起動します。
+
+```
+$ ./mvnw clean spring-boot:run -DkipTests -Dmaven.test.skip=true
+```
+
+#### 2.4. 動作確認
+
+Curl 及びブラウザからアクセスして動作確認を行います。
+
+```
+$ curl -X GET http://localhost:8080
+```
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Mustache Application</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <base href="/" />
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<h1>Mustache Application</h1>
+<div class="container">Hello World</div>
+</body>
+</html>
+```
+
+![simple](images/mustache-app-simple.png)
