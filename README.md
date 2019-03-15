@@ -14,11 +14,11 @@
 - DevTools
 
 ## Tutorial
-### シンプルな Mustache アプリケーション
+### 1. シンプルな Mustache アプリケーション
 
 Mustache テンプレートを用いた静的画面を表示するのみのシンプルなアプリケーションを作ります。
 
-#### Controller
+#### 1.1. Controller
 
 まず "/" アクセスした時に `Index` ページを表示する Controller クラスを準備します。
 
@@ -32,7 +32,7 @@ class HomeController {
 }
 ```
 
-#### Index Page
+#### 1.2. Index Page
 
 Index ページではシンプルに `Hello World` を表示するのみの単純なアプリケーションとします。
 
@@ -43,7 +43,7 @@ Index ページではシンプルに `Hello World` を表示するのみの単�
 {{>footer}}
 ```
 
-#### Mustache 記法 - Partials
+#### 1.3. Mustache 記法 - Partials
 
 Index ページの中で、次のような記述をしています。
 
@@ -82,11 +82,11 @@ Index ページの中で、次のような記述をしています。
 ```
 </details>
 
-### Model オブジェクトの利用
+### 2. Model オブジェクトの利用
 
 Model オブジェクトを生成し設定した値を Mustache テンプレートで表示するアプリケーションを作ります。
 
-#### Mustache 記法 - Variables
+#### 2.1. Mustache 記法 - Variables
 
 `header.html` と `index.html` で静的に表示設定していた内容を以下のように変更します。
 
@@ -104,7 +104,7 @@ Model オブジェクトを生成し設定した値を Mustache テンプレー�
 
 Model オブジェクトでキー名が `title` として設定された属性の値をそれぞれ表示します。
 
-#### Model オブジェクトの設定
+#### 2.2. Model オブジェクトの設定
 
 Controller クラスの中で Model オブジェクトの設定を行う処理を追加します。
 
