@@ -116,6 +116,8 @@ public String home(Model model) {
 }
 ```
 
+モデルの属性名を先述のMustache テンプレートで定義したキー名である `title` を設定し、属性値を表示させる文字列 `Mustache Application` を指定しています。
+
 #### 2.3. spring-boot:run
 
 この時点のアプリケーションを起動します。
