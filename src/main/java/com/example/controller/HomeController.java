@@ -20,7 +20,7 @@ class HomeController {
 
 		model.addAttribute("tags", new ArrayList<>(Arrays.asList("spring", "springboot", "mustache")));
 
-		List itemList = IntStream.range(0,9).mapToObj(i -> getItem(i)).collect(Collectors.toList());
+		List itemList = IntStream.rangeClosed(0,9).mapToObj(i -> getItem(i)).collect(Collectors.toList());
 		model.addAttribute("itemList", itemList);
 
 		return "index";
