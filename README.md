@@ -82,11 +82,11 @@ Index ページの中で、次のような記述をしています。
 ```
 </details>
 
-### 2. Model オブジェクトの利用
+### 2. Model オブジェクトの利用 - Value
 
 Model オブジェクトを生成し設定した値を Mustache テンプレートで表示するアプリケーションを作ります。
 
-#### 2.1. Mustache 記法 - Variables
+#### 2.1. Mustache 記法 - Variables `{{key}}`
 
 `header.html` と `index.html` で静的に表示設定していた内容を以下のように変更します。
 
@@ -158,3 +158,41 @@ $ curl -X GET http://localhost:8080
 ```
 
 ![simple](images/mustache-app-simple.png)
+
+### 3. Model オブジェクトの利用 - List
+
+Model オブジェクトを生成し設定したリストを Mustache テンプレートで表示するアプリケーションを作ります。
+
+#### 3.1. Mustache 記法 - Variables `{{#key}} 〜 {{/key}}`
+
+以下の記法で、key に指定した値がリストの場合、内容を列挙して記述できます。
+
+```
+{{#key}}
+リストの内容を抜き出す記法
+{{/key}}
+```
+
+#### 3.2. キー指定せずにリストの内容を列挙
+
+`{{#key}} 〜 {{/key}}` の間に `{{.}}` を挿入して内容を列挙します。
+
+**tags** という属性名を指定し、その属性で追加された値を列挙するテンプレートを用意します。
+
+```
+{{#tags}}
+{{.}}
+{{/tags}}
+```
+
+**tags** という属性名に対し、ArrayListで要素を追加したオブジェクトを属性値として Model に登録します。
+
+```
+model.addAttribute("tags", new ArrayList<>(Arrays.asList("spring", "springboot", "mustache")));
+```
+
+#### 3.3. 動作確認
+
+アプリケーションを起動し、動作確認を行うと以下のようにListに追加した値が列挙され画面表示されています。
+
+![list-value](images/mustache-app-list-value.png)
