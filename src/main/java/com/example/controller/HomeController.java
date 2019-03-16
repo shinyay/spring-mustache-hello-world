@@ -48,7 +48,7 @@ class HomeController {
 		private String description;
 		private int number;
 
-		public Item(String code, String name, String description, int number) {
+		Item(String code, String name, String description, int number) {
 			this.code = code;
 			this.name = name;
 			this.description = description;
