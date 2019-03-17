@@ -196,3 +196,49 @@ model.addAttribute("tags", new ArrayList<>(Arrays.asList("spring", "springboot",
 アプリケーションを起動し、動作確認を行うと以下のようにListに追加した値が列挙され画面表示されています。
 
 ![list-value](images/mustache-app-list-value.png)
+
+#### 3.4. キー指定してリストの内容を列挙
+
+`{{#key}} 〜 {{/key}}` の間に `{{キー名}}` を挿入して内容を列挙します。
+
+以下の例では、**itemList** という属性名に対して、属性値に登録している Bean オブジェクト のフィールド(=キー)を getter からアクセスして取得します。
+
+```
+{{#itemList}}
+{{code}}
+{{name}}
+{{description}}
+{{/itemList}}
+```
+
+```
+class Item{
+		private String code;
+		private String name;
+		private String description;
+		private int number;
+
+		public String getCode() {
+			return code;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public String getDescription() {
+			return description;
+		}
+
+		public int getNumber() {
+			return number;
+		}
+
+		Item(String code, String name, String description, int number) {
+			this.code = code;
+			this.name = name;
+			this.description = description;
+			this.number = number;
+		}
+}
+```
