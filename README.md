@@ -211,6 +211,8 @@ model.addAttribute("tags", new ArrayList<>(Arrays.asList("spring", "springboot",
 {{/itemList}}
 ```
 
+Mustache テンプレートで指定したキーをフィールドに持つBeanを以下のように定義します。
+
 ```
 class Item{
 		private String code;
@@ -236,3 +238,9 @@ class Item{
 		}
 }
 ```
+
+#### 3.5. 動作確認
+
+アプリケーションを起動し、動作確認を行うと以下のようにListに追加したBeanのフィールドが列挙され画面表示されています。
+
+![list-value](images/mustache-app-beanlist.png)
